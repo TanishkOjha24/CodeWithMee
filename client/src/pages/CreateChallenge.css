@@ -1,0 +1,308 @@
+/* client/src/pages/CreateChallenge.css */
+
+/* --- Import the PrismJS theme --- */
+@import url('prismjs/themes/prism-tomorrow.css');
+
+.create-challenge-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+    color: white;
+}
+
+.create-challenge-form {
+    background: rgba(20, 20, 22, 0.85);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.create-challenge-form h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.back-button {
+    margin-bottom: 2rem;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #a900ff, #00f8f1);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(169, 0, 255, 0.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.dropdown-button {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.dropdown-button:focus {
+    border-color: #00f8f1;
+    outline: none;
+}
+
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.form-editor-wrapper {
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    /* The background is applied by the PrismJS theme CSS */
+}
+
+.code-editor {
+    position: relative;
+    background: #2d2d2d; /* Set an explicit background color */
+}
+.code-editor > textarea,
+.code-editor > pre {
+    /* These need to be exactly the same to align */
+    margin: 0 !important;
+    padding: 15px !important;
+    font-family: "Fira Code", "Courier New", monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    min-height: 150px;
+    white-space: pre !important;
+    word-wrap: normal !important;
+}
+
+.code-editor > textarea {
+    /* This makes the textarea transparent so the <pre> behind it is visible */
+    background: transparent !important;
+    /* This makes the actual typed text transparent, showing only the highlighted version */
+    -webkit-text-fill-color: transparent !important;
+    /* This sets the color of the typing cursor (caret) */
+    caret-color: #f8f8f2 !important;
+    z-index: 1;
+}
+
+.code-editor > pre {
+    z-index: 0;
+}
+
+.code-editor > textarea:focus {
+    outline: none;
+}
+
+
+.custom-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 32, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 10;
+    padding: 0.5rem;
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    color: #f1f1f1;
+}
+
+.dropdown-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu li.selected {
+    background-color: rgba(0, 248, 241, 0.2);
+    font-weight: bold;
+}
+
+.test-case-row {
+    display: flex;
+    align-items: center; 
+    gap: 1rem; /* Reduced gap slightly */
+    margin-bottom: 1rem;
+}
+
+.test-case-box {
+    flex-grow: 1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.test-case-box input {
+    margin-bottom: 0; 
+}
+
+/* --- MODIFICATION START: Styles for the new toggle button --- */
+.test-case-toggle-btn {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: 110px; /* Give it a fixed width for consistency */
+    text-align: center;
+    flex-shrink: 0; /* Prevent the button from shrinking */
+}
+
+.test-case-toggle-btn.hidden {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #aaa;
+}
+
+.test-case-toggle-btn.example {
+    background-color: #00f8f1;
+    color: #141414;
+    border-color: #00f8f1;
+    font-weight: bold;
+}
+/* --- MODIFICATION END --- */
+
+
+.remove-testcase-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-testcase-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #f87171;
+    transition: fill 0.2s;
+}
+
+.remove-testcase-btn:hover svg {
+    fill: #ef4444;
+}
+
+.add-testcase-btn {
+    background: none;
+    border: 1px dashed rgba(255,255,255,0.3);
+    color: #ccc;
+    padding: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin: 1rem 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.add-testcase-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.submit-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #a900ff, #00f8f1);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(169, 0, 255, 0.3);
+}
+
+.error-message {
+    text-align: center;
+    color: #ff8a80;
+    margin-top: 1rem;
+}

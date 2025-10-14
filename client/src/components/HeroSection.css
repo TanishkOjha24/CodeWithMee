@@ -1,0 +1,75 @@
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    margin-top: -11rem; /* ADD THIS LINE TO FIX THE CENTERING */
+}
+
+.hero-title {
+    font-family: 'Martian Mono', monospace;
+    font-size: 6rem;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+    min-height: 1.2em;
+    margin-bottom: 1.5rem; /* Added margin to create space between title and box */
+}
+
+.hero-title span::after {
+    font-weight: 100 !important;
+}
+
+.hero-box {
+    border: 2px solid #007acc80; /* VS Code blue with transparency */
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    animation: fadeInBox 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInBox {
+  to { opacity: 1; }
+}
+
+.hero-subtitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: #9CDCFE; /* VS Code string color */
+    margin-top: 0; /* Adjusted margin */
+    max-width: 500px;
+}
+
+.hero-subtitle .bracket {
+  color: #808080; /* VS Code comment color for brackets */
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-box {
+        padding: 1.5rem;
+        border: 1px solid #007acc80;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+}

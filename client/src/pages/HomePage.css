@@ -1,0 +1,334 @@
+/* --- NEW: Section Hopper Styles --- */
+.section-hopper {
+    position: fixed;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.section-hopper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between items */
+}
+
+.hopper-item {
+    font-family: 'Martian Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+    position: relative;
+    padding-left: 20px; /* Space for the dot */
+    transform-origin: left center; /* NEW: Animate scale from the left */
+}
+
+.hopper-item:hover {
+    opacity: 0.7;
+}
+
+.hopper-item.active {
+    opacity: 1;
+    font-weight: 700;
+    /* MODIFIED: Make the active item larger */
+    font-size: 0.9rem; 
+    transform: scale(1.1);
+}
+
+.hopper-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* --- Page Styles --- */
+.homepage {
+    width: 100%;
+    position: relative; 
+}
+
+.content-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 2rem;
+    color: white;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#how-it-works, #features, #mission, #cta {
+    padding-top: 10vh; 
+}
+
+.content-container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.content-container h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.animated-title {
+    min-height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.animated-title .bracket {
+    font-family: 'Courier New', Courier, monospace;
+    color: #808080;
+    font-size: 2.5rem;
+}
+
+.code-block {
+    background-color: rgba(20, 20, 22, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    backdrop-filter: blur(4px);
+}
+.code-line { margin: 0.25rem 0; }
+.code-line.indent { margin-left: 2em; }
+.code-line.indent-2 { margin-left: 4em; }
+.code-keyword { color: #C586C0; }
+.code-variable { color: #9CDCFE; }
+.code-string { color: #CE9178; }
+.code-function { color: #DCDCAA; }
+.code-comment { color: #6A9955; }
+.code-arrow { color: #569CD6; }
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.toolkit-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 380px; 
+    margin: 4rem auto 0;
+    perspective: 2500px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toolkit-card {
+    position: absolute;
+    width: 65%;
+    max-width: 800px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+    border-radius: 20px;
+    background-color: rgba(30, 30, 35, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 2.5rem 3.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.toolkit-card.card-center {
+    transform: translateX(0) translateZ(0) rotateY(0deg);
+    z-index: 10;
+    opacity: 1;
+    cursor: default;
+}
+
+.toolkit-card.card-left {
+    transform: translateX(-105%) translateZ(-500px) rotateY(60deg);
+    z-index: 5;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.toolkit-card.card-right {
+    transform: translateX(105%) translateZ(-500px) rotateY(-60deg);
+    z-index: 5;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.toolkit-card.card-hidden {
+    transform: scale(0.5);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-content { 
+    flex: 1 1 60%; 
+    padding-right: 2.5rem; 
+    text-align: left; 
+}
+.card-image { 
+    flex: 0 0 40%; 
+    max-width: 250px;
+}
+.card-image img { 
+    width: 100%; 
+    border-radius: 12px; 
+}
+
+.card-content h3 { 
+    margin-top: 0; 
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white; 
+    margin-bottom: 1rem;
+}
+.card-content p { 
+    font-size: 1.1rem; 
+    color: #ccc; 
+    font-family: sans-serif; 
+    line-height: 1.7;
+}
+
+
+.network-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: 3rem auto 0;
+}
+
+
+.cta-button {
+    margin-top: 2.5rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(90deg, #a900ff, #00f8f1);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(169, 0, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+    .toolkit-carousel-container {
+        height: auto;
+        perspective: 1500px;
+        max-width: 100vw;
+    }
+    
+    .toolkit-card { 
+        width: 85%; 
+        padding: 2rem;
+    }
+
+    .toolkit-card.card-left {
+        transform: translateX(-85%) translateZ(-250px) rotateY(50deg);
+    }
+    
+    .toolkit-card.card-right {
+        transform: translateX(85%) translateZ(-250px) rotateY(-50deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .section-hopper {
+        display: none;
+    }
+    
+    .content-section { padding: 4rem 1rem; }
+    .content-container { max-width: 100%; }
+    .content-container h2 { font-size: 2.5rem; }
+    .code-block { font-size: 0.9rem; }
+
+    .toolkit-carousel-container {
+        height: 500px;
+    }
+    
+    .toolkit-card { 
+        width: 90%; 
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 1.5rem;
+        justify-content: flex-end;
+    }
+
+    .toolkit-card.card-left {
+        transform: translateX(-80%) translateZ(-200px) rotateY(45deg);
+    }
+    
+    .toolkit-card.card-right {
+        transform: translateX(80%) translateZ(-200px) rotateY(-45deg);
+    }
+
+    .card-image {
+        max-width: 180px;
+        margin-right: 0;
+        margin-top: 1.5rem;
+    }
+
+    .card-content { 
+        padding-right: 0; 
+        text-align: center;
+    }
+    .card-content h3 {
+        font-size: 1.8rem;
+    }
+    .card-content p {
+        font-size: 1rem;
+    }
+
+    .network-container {
+      height: 400px;
+    }
+}

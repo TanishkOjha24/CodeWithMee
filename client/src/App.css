@@ -1,0 +1,38 @@
+body {
+  background-color: #141414;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* This ensures the main app container takes up the full space
+   but doesn't apply any layout styles that would constrain fixed children. */
+.app-container {
+  position: relative;
+  width: 100%;
+}
+
+/* THIS IS THE KEY FIX:
+  Add padding to the top of the main content area to prevent it
+  from being hidden underneath the fixed header.
+  7rem is a safe value based on your header's height and padding.
+*/
+main {
+  padding-top: 7rem;
+}
+
+/* On pages where the header is hidden (like /auth), we remove the padding. */
+main.no-header-padding {
+  padding-top: 0;
+}
+
+
+/* --- Hide Default Browser Scrollbar --- */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

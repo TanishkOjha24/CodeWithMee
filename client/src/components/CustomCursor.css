@@ -1,0 +1,24 @@
+/* src/components/CustomCursor.css */
+
+.Cursor {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    border-radius: 0;
+    mix-blend-mode: difference; /* This creates the color inversion effect */
+    top: 0;
+    left: 0;
+    z-index: 1002; /* Increased z-index to appear above sidebar */
+    filter: url("#goo"); /* Applies the gooey effect from App.js */
+}
+
+.Cursor span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: white;
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+}
