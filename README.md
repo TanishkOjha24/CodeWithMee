@@ -2,9 +2,14 @@
 
 Welcome to CodeWithMee, an interactive, AI-powered learning environment designed to make coding an adventure. This platform generates personalized learning roadmaps and provides a split-screen sandbox where you can watch video tutorials and code simultaneously, all with the help of a personal AI assistant.
 
-<p align="center">
-  <img src="https://i.ibb.co/tpgtxLWJ/Gemini-Generated-Image-7hy9217hy9217hy9.png" alt="CodeWithMee Architecture" width="70%">
-</p>
+
+
+<img width="1024" height="1024" alt="Gemini_Generated_Image_7hy9217hy9217hy9" src="https://github.com/user-attachments/assets/1473a345-04bc-449a-a0b2-98d4bd0e94ca" />
+
+
+
+
+
 ---
 
 ## ✨ Key Features
